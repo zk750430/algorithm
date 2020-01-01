@@ -29,6 +29,13 @@ public class Node {
         return this;
     }
 
+    //插入一个节点作为当前节点的下一个节点
+    public void after(Node node) {
+        Node nextNode = next;
+        this.next = node;
+        node.next = nextNode;
+    }
+
     //获取下一个节点
     public Node next() {
         return this.next;
@@ -40,8 +47,25 @@ public class Node {
     }
 
 
-
     public int getData() {
         return this.data;
+    }
+
+
+    public void removeNext() {
+        Node newNext = this.next.next;
+        this.next = newNext;
+    }
+
+    public void show() {
+        Node currentNode = this;
+        while (true) {
+            System.out.print(currentNode.data + " ");
+            currentNode = currentNode.next;
+            if (currentNode == null) {
+                break;
+            }
+        }
+        System.out.println();
     }
 }

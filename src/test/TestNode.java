@@ -11,5 +11,8 @@ public class TestNode {
         System.out.println(node1.getData());
         System.out.println(node1.next().getData());
         System.out.println(node1.next().next().isLast());
+        Node node = new Node(4);
+        node1.after(node);
+        node1.show();
     }
 }
