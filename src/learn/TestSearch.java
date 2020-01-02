@@ -2,6 +2,9 @@ package learn;
 
 import java.net.BindException;
 
+/**
+ * @author Administrator
+ */
 public class TestSearch {
     public static void main(String[] args) {
         // 目标数组
@@ -13,7 +16,9 @@ public class TestSearch {
         System.out.println(index);
     }
 
-    //普通查询
+    /**
+     *     普通查询
+     */
     public int search(int target, int[] arr) {
         int index = -1;
         for (int i = 0; i < arr.length; i++) {
@@ -25,7 +30,9 @@ public class TestSearch {
         return index;
     }
 
-    //顺序数组采用二分法查找
+    /**
+     *  顺序数组采用二分法查找
+     */
     public int binarySearch(int target, int[] arr) {
         int index = -1;
         int begin = 0;

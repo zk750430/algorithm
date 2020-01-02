@@ -1,5 +1,8 @@
 package learn;
 
+/**
+ * @author Administrator
+ */
 public class TestArray {
     public static void main(String[] args) {
         // 创建一个数组
@@ -29,5 +32,6 @@ public class TestArray {
         // 创建数组的同时，为数组中的元素赋值
         int[] arr2 = new int[]{1, 2, 3, 4, 5};
         System.out.println("arr2's length：" + arr2.length);
+        System.out.println(arr2[2]);
     }
 }

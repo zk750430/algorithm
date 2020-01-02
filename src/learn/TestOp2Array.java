@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * 删除指定位置的元素
+ * @author Administrator
  */
 public class TestOp2Array {
     public static void main(String[] args) {

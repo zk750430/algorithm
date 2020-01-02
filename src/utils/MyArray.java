@@ -2,20 +2,30 @@ package utils;
 
 import java.util.Arrays;
 
+/**
+ * @author Administrator
+ */
 public class MyArray {
-    // 用于存储数据的数组
+    /**
+     * 用于存储数据的数组
+     */
     private int[] elements;
 
     public MyArray() {
         elements = new int[0];
     }
 
-    //获取数组长度的方法
+    /**
+     * 获取数组长度的方法
+     */
+
     public int size() {
         return elements.length;
     }
 
-    //往数组的末尾添加元素
+    /**
+     * 往数组的末尾添加元素
+     */
     public void add(int element) {
         //创建一个新的数组
         int[] newArr = new int[elements.length + 1];
@@ -27,9 +37,11 @@ public class MyArray {
         elements = newArr;
     }
 
-    //往数组的指定位置添加元素
+    /**
+     * 往数组的指定位置添加元素
+     */
     public void insert(int index, int element) {
-        if(index<0||index>elements.length){
+        if (index < 0 || index > elements.length) {
             throw new RuntimeException("数组下标越界");
         }
         int[] newArr = new int[elements.length + 1];
@@ -45,7 +57,9 @@ public class MyArray {
         elements = newArr;
     }
 
-    //删除元素
+    /**
+     * 删除元素
+     */
     public void delete() {
         isEmpty();
         int[] newArr = new int[elements.length - 1];
@@ -55,7 +69,11 @@ public class MyArray {
         elements = newArr;
     }
 
-    //删除指定位置的元素
+    /**
+     * 删除指定位置的元素
+     *
+     * @param index 指定下标
+     */
     public void delete(int index) {
         checkIndex(index);
         int[] newArr = new int[elements.length - 1];
@@ -69,26 +87,43 @@ public class MyArray {
         elements = newArr;
     }
 
-    //替换指定位置的元素
-    public void replace(int index,int element){
+    /**
+     * 替换指定位置的元素
+     *
+     * @param index   指定位置
+     * @param element 新元素
+     */
+    public void replace(int index, int element) {
         checkIndex(index);
         elements[index] = element;
     }
 
-    //查询指定位置的数据
+    /**
+     * 查询指定位置的数据
+     *
+     * @param index 下标
+     */
     public int get(int index) {
         checkIndex(index);
         return elements[index];
     }
 
-    // 检查数组下标是否越界
+
+    /**
+     * 检查数组下标是否越界
+     *
+     * @param index 下标
+     */
     public void checkIndex(int index) {
         if (index < 0 || index > elements.length - 1) {
             throw new RuntimeException("数组下标越界");
         }
     }
 
-    //打印所有元素到控制台
+
+    /**
+     * 打印所有元素到控制台
+     */
     public void show() {
         System.out.println(Arrays.toString(elements));
     }
@@ -99,7 +134,13 @@ public class MyArray {
         }
     }
 
-    //普通查询
+    /**
+     * 普通元素的下标位置
+     *
+     * @param target 指定元素
+     * @param arr    数组
+     * @return 1代表没有，
+     */
     public int search(int target, int[] arr) {
         int index = -1;
         for (int i = 0; i < arr.length; i++) {
@@ -112,7 +153,13 @@ public class MyArray {
     }
 
 
-    //顺序数组采用二分法查找
+    /**
+     * 顺序数组采用二分法查找
+     *
+     * @param target 指定元素
+     * @param arr    数组
+     * @return -1代表没有此元素
+     */
     public int binarySearch(int target, int[] arr) {
         int begin = 0;
         int end = arr.length - 1;

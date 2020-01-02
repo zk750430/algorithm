@@ -1,5 +1,8 @@
 package utils;
 
+/**
+ * @author Administrator
+ */
 public class FebonacciUtil {
 
     public int febonacci(int i) {

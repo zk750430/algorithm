@@ -2,6 +2,9 @@ package test;
 
 import utils.MyQueue;
 
+/**
+ * @author Administrator
+ */
 public class TestMyQueue {
     public static void main(String[] args) {
         MyQueue myQueue = new MyQueue();

@@ -1,5 +1,8 @@
 package utils;
 
+/**
+ * @author Administrator
+ */
 public class DoubleNode {
     DoubleNode pre = this;
     DoubleNode next = this;

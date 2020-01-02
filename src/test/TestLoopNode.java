@@ -2,6 +2,9 @@ package test;
 
 import utils.LoopNode;
 
+/**
+ * @author Administrator
+ */
 public class TestLoopNode {
     public static void main(String[] args) {
         LoopNode loopNode1 = new LoopNode(1);

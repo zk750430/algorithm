@@ -2,6 +2,9 @@ package test;
 
 import utils.DoubleNode;
 
+/**
+ * @author Administrator
+ */
 public class TestDoubleNode {
     public static void main(String[] args) {
         DoubleNode doubleNode1 = new DoubleNode(1);

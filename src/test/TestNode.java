@@ -2,6 +2,9 @@ package test;
 
 import utils.Node;
 
+/**
+ * @author Administrator
+ */
 public class TestNode {
     public static void main(String[] args) {
         Node node1 = new Node(1);
