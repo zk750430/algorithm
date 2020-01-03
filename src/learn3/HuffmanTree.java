@@ -20,7 +20,7 @@ public class HuffmanTree {
      * @param arr
      * @return
      */
-    public Node1 createHUffmanTree(int[] arr) {
+    public Node1 createHuffmanTree(int[] arr) {
         //先使用数组中所有的元素创建若干个二叉树，只有一个节点
         List<Node1> list = new ArrayList<>();
         for (int value : arr) {
