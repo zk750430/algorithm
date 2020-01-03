@@ -34,10 +34,11 @@ public class MyQueue {
         elements = newArr;
         return element;
     }
-    public void isEmpty() {
+    public boolean isEmpty() {
         if (elements.length == 0) {
-            throw new RuntimeException("数组为空");
+            return true;
         }
+        return false;
     }
 
     @Override

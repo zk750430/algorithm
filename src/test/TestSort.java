@@ -2,7 +2,10 @@ package test;
 
 import learn2.Sort;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * @author： Administrator
@@ -11,7 +14,7 @@ import java.util.Arrays;
  */
 public class TestSort {
     public static void main(String[] args) {
-        int[] arr = new int[]{4, 1, 4, 3, 5, 2, 6, 7, 2, 0, 7, 10, 49};
+        int[] arr = new int[]{9, 6, 8, 7, 0, 1, 10, 4, 2};
         Sort sort = new Sort();
 
 //        System.out.println("排序之前：" + Arrays.toString(arr));
@@ -22,8 +25,8 @@ public class TestSort {
 //        System.out.println("排序之前：" + Arrays.toString(arr));
 //        sort.quickSort(arr,0,arr.length-1);
 //        System.out.println("排序之后：" + Arrays.toString(arr));
-
-        sort.mergeSort(arr,0,arr.length-1);
+        //开始位置是最后一个非叶子节点，即最后一个节点的父节点
+        sort.heapSort(arr);
         System.out.println(Arrays.toString(arr));
 
     }

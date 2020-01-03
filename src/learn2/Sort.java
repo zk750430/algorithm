@@ -1,5 +1,7 @@
 package learn2;
 
+import utils.MyQueue;
+
 import java.util.Arrays;
 
 /**
@@ -214,6 +216,151 @@ public class Sort {
         for (int k = 0; k < temp.length; k++) {
             arr[k + low] = temp[k];
         }
+
+    }
+
+
+    /**
+     * 基数排序
+     *
+     * @param arr
+     */
+    public void radixSort(int[] arr) {
+        //找出数组中的最大值
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        //计算最大数字是几位数
+        int maxLength = (max + "").length();
+
+
+        //用于临时存储数据的二维数组
+        int[][] temp = new int[10][arr.length - 1];
+
+        //用于记录在temp相应的数组中的存放的数字的数量
+        int[] counts = new int[10];
+        int num = 10;
+        for (int i = 0, n = 1; i < maxLength; i++, n *= num) {
+            for (int j = 0; j < arr.length; j++) {
+                //把每个数字分别计算余数
+                int ys = (arr[j] / n) % 10;
+                //把当前遍历的数据放入指定数组中
+                temp[ys][counts[ys]] = arr[j];
+                counts[ys]++;
+            }
+            //记录取得数字需要放的位置
+            int index = 0;
+            //把数字取出来
+            for (int k = 0; k < counts.length; k++) {
+                //记录数量的数组中当前余数记录的数量不为0
+                if (counts[k] != 0) {
+                    for (int l = 0; l < counts[k]; l++) {
+                        arr[index] = temp[k][l];
+                        index++;
+                    }
+                    //把数量置为0
+                    counts[k] = 0;
+                }
+
+            }
+
+        }
+
+    }
+
+
+    /**
+     * 基数排序
+     * 基于队列实现
+     *
+     * @param arr
+     */
+    public void radixQueueSort(int[] arr) {
+        //找出数组中的最大值
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        //计算最大数字是几位数
+        int maxLength = (max + "").length();
+
+
+        //用于临时存储数据的队列数组
+        MyQueue[] temp = new MyQueue[10];
+        //为队列数组赋值
+        for (int i = 0; i < temp.length; i++) {
+            temp[i] = new MyQueue();
+        }
+        int num = 10;
+        for (int i = 0, n = 1; i < maxLength; i++, n *= num) {
+            for (int j = 0; j < arr.length; j++) {
+                //把每个数字分别计算余数
+                int ys = (arr[j] / n) % 10;
+                //把当前遍历的数据放入指定队列中
+                temp[ys].add(arr[j]);
+            }
+            //记录取得数字需要放的位置
+            int index = 0;
+            //把数字取出来
+            for (int k = 0; k < temp.length; k++) {
+                //记录数量的数组中当前余数记录的数量不为0
+                while (!temp[k].isEmpty()) {
+                    arr[index] = temp[k].poll();
+                    index++;
+                }
+            }
+
+        }
+
+    }
+
+    /**
+     * @param arr
+     */
+    public void heapSort(int[] arr) {
+        int start = (arr.length - 1) / 2;
+        //调整为大顶堆
+        for (int i = start; i >= 0; i--) {
+            maxHeap(arr, arr.length, i);
+        }
+        //先把数组中的第0个和堆中的最后一个数交换位置，再把前面的处理为大顶堆
+        for (int i = arr.length - 1; i > 0; i--) {
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+            maxHeap(arr, i, 0);
+        }
+    }
+
+    private void maxHeap(int[] arr, int size, int index) {
+        //左子节点
+        int leftNode = 2 * index + 1;
+        //右子节点
+        int rightNode = 2 * index + 2;
+        int max = index;
+        //和两个子节点分别进行对比，找出最大的节点
+        if (leftNode < size && arr[leftNode] > arr[max]) {
+            max = leftNode;
+        }
+        if (rightNode < size && arr[rightNode] > arr[max]) {
+            max = rightNode;
+        }
+        //交换位置
+        if (max != index) {
+            int temp = arr[index];
+            arr[index] = arr[max];
+            arr[max] = temp;
+
+            //交换位置后可能会破坏之间排好的堆，所以之前排好的堆需要重新调整
+            maxHeap(arr, size, max);
+
+        }
+
 
     }
 
