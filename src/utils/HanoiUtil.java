@@ -5,7 +5,7 @@ package utils;
  */
 public class HanoiUtil {
     public static void main(String[] args) {
-        hanoi(3,'A','B','C');
+        hanoi(4,'A','B','C');
     }
     /**
      * @param n    共有N个盘子

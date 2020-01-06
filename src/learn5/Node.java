@@ -20,13 +20,17 @@ public class Node {
     }
 
     public int leftHeight() {
-        if (left == null) return 0;
+        if (left == null) {
+            return 0;
+        }
 
         return left.height();
     }
 
     public int rightHeight() {
-        if (right == null) return 0;
+        if (right == null) {
+            return 0;
+        }
         return right.height();
     }
 
@@ -57,18 +61,15 @@ public class Node {
             //双旋转
             if (left != null && (left.leftHeight() < left.rightHeight())) {
                 left.leftRotate();
-                rightRotate();
-            } else {//单旋转
-                rightRotate();
             }
+            rightRotate();
         }
-        if (leftHeight() - rightHeight() <= -2) {//左旋转
+        //左旋转
+        if (leftHeight() - rightHeight() <= -2) {
             if (right != null && right.rightHeight() < right.leftHeight()) {
                 right.rightRotate();
-                leftRotate();
-            } else {
-                leftRotate();
             }
+            leftRotate();
         }
 
 
@@ -152,8 +153,9 @@ public class Node {
      * @return
      */
     public Node searchParent(int value) {
-        if ((this.left != null && this.left.value == value) ||
-                (this.right != null && this.right.value == value)) {
+        boolean flag = this.left != null && this.left.value == value;
+        boolean flag2 = this.right != null && this.right.value == value;
+        if (flag || flag2) {
             return this;
         } else {
             if (this.value > value && this.left != null) {
