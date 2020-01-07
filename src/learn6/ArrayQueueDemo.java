@@ -1,5 +1,8 @@
 package learn6;
 
+/**
+ * @author Administrator
+ */
 public class ArrayQueueDemo {
     public static void main(String[] args) {
 
@@ -10,13 +13,21 @@ public class ArrayQueueDemo {
  * 使用数组模拟队列
  */
 class ArrayQueue {
-    //数组最大容量
+    /**
+     * 数组最大容量
+     */
     private int maxSize;
-    //队列头
+    /**
+     * 队列头
+     */
     private int front;
-    //队列尾
+    /**
+     * 队列尾
+     */
     private int rear;
-    //该数组用户存放数据，模拟队列
+    /**
+     * 该数组用户存放数据，模拟队列
+     */
     private int[] arr;
 
 
